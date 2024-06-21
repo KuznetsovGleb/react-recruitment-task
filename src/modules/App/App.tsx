@@ -1,21 +1,14 @@
+import { FC } from "react";
 import { Route, Routes } from "react-router-dom";
+import { PokemonsList } from "../pokemons/components/PokemonsList";
+import { PokemonCard } from "../pokemons/components/PokemonCard";
+import "./index.css";
 
-const Homepage = () => {
+export const App: FC = () => {
   return (
-    <div>
-      <h1>
-        Pokedex
-      </h1>
-    </div>
-  )
-}
-
-export const App = () => {
-  return (
-    <div className="app">
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<PokemonsList />} />
+      <Route path="/:id" element={<PokemonCard />} />
+    </Routes>
   );
-}
+};
